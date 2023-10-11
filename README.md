@@ -1,27 +1,46 @@
-# React + TypeScript + Vite
+# React com TypeScript
+#### _Básico de TSX_
+Exemplos e exercícios do módulo 2 do curso.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)  ![](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
+<img src="https://pbs.twimg.com/media/EtZYf1FWYAMmtHj.jpg" height="28px" alt="firebase"/>
 
-Currently, two official plugins are available:
+## Descrição
+O projeto foi desenvolvido usando [TypeScript](https://www.typescriptlang.org/) e compilado para **JavaScript** utilizando o [Vite](https://vitejs.dev/).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instruções
 
-## Expanding the ESLint configuration
+É possível verificar o conteúdo estudado durante o curso, selecionando o histórico de [commits].
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+> Caso você seja um desenvolvedor, use as instruções abaixo para instalar as dependências e sugerir alterações para a aplicação.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+Primeiramente, você pode fazer a instalação do *TypeScript* globalmente, basta abrir o terminal de sua preferência e digitar o comando:
+```sh
+npm install -g typescript
+```
+Após a instalação do *TypeScript*, você pode simplesmente abrir o seu editor de código (ex.: VSCode) e clonar este repositório.
+```sh
+git clone https://github.com/PedroPaivaDev/study-origamid-react-typescript
+```
+Após clonar o projeto deste repositório, dentro do diretório do projeto você deve usar o comando `npm install` em um terminal, para gerar a pasta **node_modules**.
+```sh
+npm install
+```
+Use o comando `npm run dev` do *Vite*, para que a compilação seja feita de forma automática e a aplicação possa ser visualizada na porta [localhost:5173](http://localhost:5173). Desse modo, a página irá recarregar a cada alteração feita no código e mostrará eventuais erros no console.
+```sh
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Desenvolvimento do Curso
+
+Módulos:
+
+| Parte | Conteúdo desenvolvido |
+| ------ | ------ |
+| [Básico de TSX](https://study-origamid-react-typescript-git-basic-pedropaivadev.vercel.app/) | Essa *branch* foi criada para armazenar os testes feitos durantes as aulas. |
+| [Hooks com TSX](https://study-origamid-typescript-git-hooks-pedropaivadev.vercel.app/) | Essa *branch* foi criada para armazenar os testes feitos durantes as aulas. |
+| [Projeto Final](https://study-origamid-typescript-git-project-pedropaivadev.vercel.app/) | Projeto final do curso. |
+
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+
+[commits]: <https://github.com/PedroPaivaDev/study-origamid-react-typescript/commits/main>
