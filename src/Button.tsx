@@ -1,17 +1,23 @@
 import React from 'react';
 
-type ButtonProps = {
+type ButtonProps2 = React.PropsWithChildren<{ //tipo utilitário para Children
   tamanho?: string;
-  children: React.ReactNode;
   onClick: () => void;
-}
+}>;
 
-const Button = (props:ButtonProps) => {
+type ButtonProps = 
+  React.ComponentProps<'button'> &  //utilitário genérico com extensão de props
+  {
+    tamanho?: string;
+  }
+;
+
+const Button = ({tamanho, children, ...props}:ButtonProps) => {
   return (
-    <button style={{fontSize: props.tamanho}}
-      onClick={props.onClick}
+    <button style={{fontSize: tamanho}}
+      {...props}
     >
-      {props.children}
+      {children}
     </button>
   )
 }

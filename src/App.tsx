@@ -11,7 +11,12 @@ function App() {
   return (
     <div>
       <p>Total: {total}</p>
-      <Button tamanho='1.5rem' onClick={incrementar}>
+      <Button
+        id='botao-principal'
+        className='btn'
+        onClick={incrementar}
+        tamanho='1.5rem'
+      >
         Incrementar
       </Button>
     </div>
