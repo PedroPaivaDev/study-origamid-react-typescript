@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import Input from './Input';
 
 function App() {
   const [total, setTotal] = React.useState(0); //inferencia
@@ -19,6 +20,7 @@ function App() {
       >
         Incrementar
       </Button>
+      <Input id='teste' label='Teste' />
     </div>
   );
 }
