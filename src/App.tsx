@@ -4,6 +4,7 @@ import Input from './Input';
 
 function App() {
   const [total, setTotal] = React.useState(0); //inferencia
+  const [date, setDate] = React.useState('');
 
   function incrementar() { //tipo declarado
     setTotal((total) => total + 1);
@@ -20,7 +21,10 @@ function App() {
       >
         Incrementar
       </Button>
+      <p>Início da Viagem: {date}</p>
       <Input id='teste' label='Teste' />
+      <Input value={date} onChange={(e) => setDate(e.currentTarget.value)} id='day' label='Dia' type='date' />
+      <Input id='hour' label='Hora' type='time' />
     </div>
   );
 }
