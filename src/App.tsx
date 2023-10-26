@@ -18,6 +18,8 @@ function App() {
         className='btn'
         onClick={incrementar}
         tamanho='1.5rem'
+        total={total}
+        setTotal={setTotal}
       >
         Incrementar
       </Button>
