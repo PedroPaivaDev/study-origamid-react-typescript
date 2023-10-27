@@ -1,58 +1,52 @@
 import React from 'react';
-import Button from './Button';
 import Input from './Input';
-import Checkbox from './Checkbox';
 
-function user() {
-  return {
-    nome: 'André',
-    profissao: 'Designer'
-  }
-}
-
-type User = {
+interface Sale {
+  data: string;
+  id: string;
   nome: string;
-  profissao: string;
+  pagamento: 'pix' | 'cartao' | 'boleto';
+  parcelas: number | null;
+  preco: number;
+  status: 'pago' | 'falha' | 'processando';
 }
 
 function App() {
-  const [total, setTotal] = React.useState(0); //inferencia
-  const [date, setDate] = React.useState('');
-  const [data, setData] = React.useState<null | User>(null);
+  const [sales, setSales] = React.useState<Sale[]|null>(null);
+  const [initialDate, setInitialDate] = React.useState<string>('');
+  const [finalDate, setFinalDate] = React.useState<string>('');
 
-  function incrementar() { //tipo declarado
-    setTotal((total) => total + 1);
+  async function getSales(inicio:string, final:string) {
+    const url = `https://data.origamid.dev/vendas/?inicio=${inicio}&final=${final}`
+    const data = await fetch(url);
+    const json = data.json();
+    return json;
   }
 
   React.useEffect(() => {
-    setTimeout(() => {
-      setData(user());
-    },1000)
-  },[])
+    if(initialDate.length===0 || finalDate.length===0 ) return;
+    async function salesData(inicio:string, final:string) {
+      const data = await getSales(inicio, final)
+      setSales(data)
+    }
+    salesData(initialDate, finalDate)
+  },[initialDate, finalDate])
 
   return (
     <div>
-      <p>Total: {total}</p>
-      <Button
-        incrementar={setTotal}
-        id='botao-principal'
-        className='btn'
-        onClick={incrementar}
-        tamanho='1.5rem'
-        // total={total}
-        // setTotal={setTotal}
-      >
-        Incrementar
-      </Button>
-      <p>Início da Viagem: {date}</p>
-      <Input id='teste' label='Teste' />
-      <Input value={date} onChange={(e) => setDate(e.currentTarget.value)} id='day' label='Dia' type='date' />
-      <Input id='hour' label='Hora' type='time' />
-      <Checkbox label='Termos e Condições'/>
-      {!data ?
-        <div>Carregando...</div> :
-        <div>{data.nome}: {data.profissao}</div>
-      }
+      <h1>Exercício da Aula 301</h1>
+      <br/>
+      <p>Defina a data de início e final, para visualizar o histórico de vendas nesse período.</p>
+      <Input state={initialDate} setState={setInitialDate} label='Data de Início' type='date'/>
+      <Input state={finalDate} setState={setFinalDate} label='Data Final' type='date'/>
+      <br/>
+      <h2>Histórico de Vendas:</h2>
+      {sales && sales.map(sale =>
+        <div key={sale.id}>
+          <h3>{sale.nome}</h3>
+          <p>R$ {sale.preco.toFixed(2)}</p>
+        </div>
+      )}
     </div>
   );
 }
