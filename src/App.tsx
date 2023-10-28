@@ -37,8 +37,8 @@ function App() {
       <h1>Exercício da Aula 301</h1>
       <br/>
       <p>Defina a data de início e final, para visualizar o histórico de vendas nesse período.</p>
-      <Input state={initialDate} setState={setInitialDate} label='Data de Início' type='date'/>
-      <Input state={finalDate} setState={setFinalDate} label='Data Final' type='date'/>
+      <Input setState={setInitialDate} label='Data de Início' type='date'/>
+      <Input setState={setFinalDate} label='Data Final' type='date'/>
       <br/>
       <h2>Histórico de Vendas:</h2>
       {sales && sales.map(sale =>
