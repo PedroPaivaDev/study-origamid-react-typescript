@@ -23,6 +23,15 @@ function App() {
     return json;
   }
 
+  function useEffectCallback() {
+    console.log('Mountou');
+    return () => {
+      console.log('Desmontou');
+    };
+  }
+
+  React.useEffect(useEffectCallback, []);
+
   React.useEffect(() => {
     if(initialDate.length===0 || finalDate.length===0 ) return;
     async function salesData(inicio:string, final:string) {
@@ -30,7 +39,7 @@ function App() {
       setSales(data)
     }
     salesData(initialDate, finalDate)
-  },[initialDate, finalDate])
+  },[initialDate, finalDate]);
 
   return (
     <div>
