@@ -13,43 +13,43 @@ function App() {
     } else {
       video.current?.play();
     }
-    setIsPlaying(!isPlaying);
+    // setIsPlaying(!isPlaying);
   }
 
   function handleForward() {
-    const currentVideoTime = video.current?.currentTime;
-    if(!currentVideoTime) return
-    video.current.currentTime = currentVideoTime + 2;
-  }
-
-  function handleSpeedOne() {
     if(!video.current) return
-    video.current.playbackRate = 1;
+    video.current.currentTime += 2;
   }
 
-  function handleSpeedTwo() {
+  function handleSpeed(speed:number) {
     if(!video.current) return
-    video.current.playbackRate = 2;
+    video.current.playbackRate = speed;
   }
 
-  function handlePiP() {
-    video.current?.requestPictureInPicture();
+  async function handlePiP() {
+    if(!video.current) return
+    if(document.pictureInPictureElement) {
+      await document.exitPictureInPicture();
+    } else {
+      await video.current?.requestPictureInPicture();
+    }
   }
 
   function handleMute() {
     if(!video.current) return
-    if(isMuted) {
-      video.current.volume = 1
-    } else {
-      video.current.volume = 0
-    }
+    // if(isMuted) {
+    //   video.current.volume = 1
+    // } else {
+    //   video.current.volume = 0
+    // }
+    video.current.muted = !video.current.muted
     setIsMuted(!isMuted)
   }
 
-  React.useEffect(() => {
-    video.current?.addEventListener('ended', () => setIsPlaying(false));
-    return () => video.current?.removeEventListener('ended', () => setIsPlaying(false));
-  },[])
+  // React.useEffect(() => {
+  //   video.current?.addEventListener('ended', () => setIsPlaying(false));
+  //   return () => video.current?.removeEventListener('ended', () => setIsPlaying(false));
+  // },[])
 
   return (
     <div>
@@ -58,13 +58,18 @@ function App() {
       <div className='flex'>
         <button onClick={handlePlayPause}>{isPlaying ? 'Pause' : 'Play'}</button>
         <button onClick={handleForward}>+ 2s</button>
-        <button onClick={handleSpeedOne}>x1</button>
-        <button onClick={handleSpeedTwo}>x2</button>
+        <button onClick={() => handleSpeed(1)}>x1</button>
+        <button onClick={() => handleSpeed(2)}>x2</button>
         <button onClick={handlePiP}>PiP</button>
         <button onClick={handleMute}>{isMuted ? 'Unmute' : 'Mute'}</button>
       </div>
       <br />
-      <video ref={video} src={videoSrc}></video>
+      <video
+        ref={video}
+        src={videoSrc}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+      />
     </div>
   );
 }
