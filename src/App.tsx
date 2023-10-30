@@ -1,32 +1,48 @@
+import React from 'react';
 import useFetch from './hooks/useFetch';
 
 const productsUrl = new URL('https://data.origamid.dev/produtos');
 
 function App() {
-  const {data, error, loading} = useFetch<Product[]>(productsUrl, {});
+  const products = useFetch<Product[]>(productsUrl, {});
+  const [productId, setProductId] = React.useState<string|undefined>();
+  const product = useFetch<Product>(`${productsUrl}/${productId}`, {
+    cache: "force-cache" //para armazenar em cache um produto já buscado
+  });
 
-  if(loading) {
+  if(products.loading) {
     return <p>Carregando...</p>
   }
 
-  if(error) {
-    return <p>Ocorreu um erro: {error.message}</p>
+  if(products.error) {
+    return <p>Ocorreu um erro: {products.error}</p>
   }
 
   return (
     <div>
       <h1 style={{marginBottom:'70px'}}>Exercício da Aula 305</h1>
-      <div>
-        {data?.map(product =>
-        <div key={product.id} style={{marginBottom:'70px'}}>
-          <h2>{product.nome}</h2>
-          <p>{product.descricao}</p>
-          <h3>R$ {product.preco.toFixed(2)}</h3>
-          <p>Quantidade: {product.quantidade}</p>
-          <p>Produto nacional: {product.internacional ? 'sim' : 'não'}</p>
+      <section className='flex'>
+        <div>
+          {products.data?.map(product =>
+          <button
+            key={product.id}
+            onClick={() => setProductId(product.id)}
+          >
+            {product.id}
+          </button>
+          )}
         </div>
-        )}
-      </div>
+        {product.loading && <p>Carregando...</p>}
+        {typeof product.data?.id==='string' &&
+          <ul key={product.data.id} style={{marginBottom:'70px'}}>
+            <li>{product.data.nome}</li>
+            <li>{product.data.descricao}</li>
+            <li>R$ {product.data.preco.toFixed(2)}</li>
+            <li>Quantidade: {product.data.quantidade}</li>
+            <li>Produto nacional: {product.data.internacional ? 'sim' : 'não'}</li>
+          </ul>
+        }
+      </section>
     </div>
   );
 }
