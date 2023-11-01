@@ -1,8 +1,12 @@
-import { useUi } from "../contexts/UiContext";
+import React from "react";
 
+import { useUi } from "../contexts/UiContext";
+import { UserContext } from "../contexts/UserContext";
 
 const Content = () => {
   const { dark } = useUi();
+  const user = React.useContext(UserContext);
+
   return (
     <div
       style={{
@@ -11,7 +15,11 @@ const Content = () => {
         backgroundColor: dark ? '#222' : '#fff',
       }}
     >
-      Esse é um teste do modo.
+      {user?.data && <ul>
+        <li>playback: {user.data.preferencias.playback}</li>
+        <li>qualidade: {user.data.preferencias.qualidade}</li>
+        <li>volume: {user.data.preferencias.volume}</li>
+      </ul>}
     </div>
   );
 };

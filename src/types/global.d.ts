@@ -6,3 +6,16 @@ interface Product {
   preco: number;
   quantidade: number;
 }
+
+interface User {
+  id: number;
+  nome: string;
+  idade: number;
+  aulas: number;
+  cursos: number;
+  preferencias: {
+    playback: number;
+    volume: number;
+    qualidade: string;
+  };
+}
