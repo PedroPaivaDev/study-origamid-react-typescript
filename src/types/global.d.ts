@@ -16,6 +16,6 @@ interface User {
   preferencias: {
     playback: number;
     volume: number;
-    qualidade: string;
+    qualidade: 'baixa' | 'media' | 'alta';
   };
 }

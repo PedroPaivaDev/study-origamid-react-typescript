@@ -14,11 +14,11 @@ interface PropsUserContextProvider {
 
 export const UserContext = React.createContext<InitialUserContext|null>(null);
 
-// export const useUser = () => {
-//   const context = React.useContext(UserContext);
-//   if (!context) throw new Error('useContext deve estar dentro do Provider');
-//   return context;
-// };
+export const useUser = () => {
+  const context = React.useContext(UserContext);
+  if (!context) throw new Error('useContext deve estar dentro do Provider');
+  return context;
+};
 
 export const UserContextProvider = ({children, userUrl}:PropsUserContextProvider) => {
   const {data, error, loading} = useFetch<User>(`${userUrl}`);

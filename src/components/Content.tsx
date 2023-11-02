@@ -1,11 +1,9 @@
-import React from "react";
-
 import { useUi } from "../contexts/UiContext";
-import { UserContext } from "../contexts/UserContext";
+import { useUser } from "../contexts/UserContext";
 
 const Content = () => {
   const { dark } = useUi();
-  const user = React.useContext(UserContext);
+  const {data} = useUser();
 
   return (
     <div
@@ -15,10 +13,10 @@ const Content = () => {
         backgroundColor: dark ? '#222' : '#fff',
       }}
     >
-      {user?.data && <ul>
-        <li>playback: {user.data.preferencias.playback}</li>
-        <li>qualidade: {user.data.preferencias.qualidade}</li>
-        <li>volume: {user.data.preferencias.volume}</li>
+      {data && <ul>
+        <li>playback: {data.preferencias.playback}</li>
+        <li>qualidade: {data.preferencias.qualidade}</li>
+        <li>volume: {data.preferencias.volume}</li>
       </ul>}
     </div>
   );

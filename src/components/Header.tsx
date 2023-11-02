@@ -1,14 +1,13 @@
-import React from "react";
 import { useUi } from "../contexts/UiContext";
-import { UserContext } from "../contexts/UserContext";
+import { useUser } from "../contexts/UserContext";
 
 const Header = () => {
   const { setDark } = useUi();
-  const user = React.useContext(UserContext);
+  const {data} = useUser();
 
   return (
     <div>
-      {user?.data && <h2>{user.data.nome}</h2>}
+      {data && <h2>{data.nome}</h2>}
       <button onClick={() => setDark((d) => !d)}>Modo</button>
     </div>
   );
