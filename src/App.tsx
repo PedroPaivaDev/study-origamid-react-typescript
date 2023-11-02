@@ -6,6 +6,7 @@ import useFetch from './hooks/useFetch';
 
 import Header from './components/Header';
 import Content from './components/Content';
+import Form from './components/Form';
 
 const usersUrl = 'https://data.origamid.dev/usuarios';
 
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <div>
+      <Form />
       <UserContextProvider userUrl={`${usersUrl}/${userId}`}>
         <UiContextProvider>
           <Header/>
