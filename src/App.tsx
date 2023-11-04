@@ -1,5 +1,5 @@
 import Resumo from './pages/Resumo';
-import Sidenav from './components/SideNav';
+import Sidenav from './components/Sidenav';
 import Header from './components/Header';
 import { DataContextProvider } from './contexts/DataContext';
 

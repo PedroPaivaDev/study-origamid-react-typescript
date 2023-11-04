@@ -1,12 +1,11 @@
 import React from 'react';
-import { useData } from '../contexts/DataContext';
+
+import DateRange from './DateRange';
 
 const Header = () => {
-  const {data} = useData();
-
   return (
     <div>
-      Header
+      <DateRange />
     </div>
   )
 }
