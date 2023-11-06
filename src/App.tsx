@@ -7,7 +7,7 @@ function App() {
 
   return (
     <DataContextProvider>
-      <div>
+      <div className='container'>
         <Sidenav />
         <main>
           <Header />
