@@ -95,3 +95,15 @@ img {
   padding: var(--gap);
   gap: var(--gap);
 }
+
+/*Resumo*/
+.resumo {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.resumo h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--vap);
+  color: var(--color-1);
+}
