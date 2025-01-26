@@ -11,6 +11,16 @@ interface InitialDataContext {
   setFinal: React.Dispatch<React.SetStateAction<string>>;
 }
 
+export type IVenda = {
+  id: string;
+  nome: string;
+  preco: number;
+  status: "pago" | "processando" | "falha";
+  pagamento: "boleto" | "pix" | "cartao";
+  data: string;
+  parcelas: number | null;
+}
+
 const DataContext = React.createContext<InitialDataContext|null>(null);
 
 export const useData = () => {
