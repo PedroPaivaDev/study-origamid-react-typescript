@@ -8,6 +8,10 @@ Exemplos e exercícios do módulo 2 do curso.
 ## Descrição
 O projeto foi desenvolvido usando [TypeScript](https://www.typescriptlang.org/) e compilado para **JavaScript** utilizando o [Vite](https://vitejs.dev/).
 
+O objetivo do curso foi utilizar o *TypeScript* com o [React](https://react.dev/learn/start-a-new-react-project), fazendo a tipagem correta dos elementos HTML e também das variáveis.
+
+A navegação entre as páginas foi feita com o [react-router](https://reactrouter.com/en/main) e também foi usado o [recharts](https://recharts.org/en-US/) para gerar os gráficos com os dados retornados pela API de pagamentos da Origamid.
+
 ## Instruções
 
 É possível verificar o conteúdo estudado durante o curso, selecionando o histórico de [commits].
@@ -33,13 +37,15 @@ npm run dev
 
 ## Desenvolvimento do Curso
 
+Foi muito bom conhecer os tipos nativos do React, utilizados para tipar elementos HTML customizados, com as características dos elementos HTML tradicionais. Eu também não conhecia a propriedade Ommit do TypeScript, que permite usar tipagens existentes, mas removendo algumas propiedades para criar uma nova tipagem.
+
 Módulos:
 
 | Parte | Conteúdo desenvolvido |
 | ------ | ------ |
-| [Básico de TSX](https://study-origamid-react-typescript-git-basic-pedropaivadev.vercel.app/) | Essa *branch* foi criada para armazenar os testes feitos durantes as aulas. |
-| [Hooks com TSX](https://study-origamid-typescript-git-hooks-pedropaivadev.vercel.app/) | Essa *branch* foi criada para armazenar os testes feitos durantes as aulas. |
-| [Projeto Final](https://study-origamid-typescript-git-project-pedropaivadev.vercel.app/) | Projeto final do curso. |
+| [Básico de TSX](https://study-origamid-react-typescript-q2r6q12cn-pedropaivadev.vercel.app/) | Essa *branch* foi criada para armazenar os testes feitos durantes as aulas. |
+| [Hooks com TSX](https://study-origamid-react-typescript-nlsm9vud2-pedropaivadev.vercel.app/) | Essa *branch* foi criada para armazenar os testes feitos durantes as aulas. |
+| [Projeto Final](https://study-origamid-react-typescript-7na5ihnl8.vercel.app/) | Projeto final do curso. |
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
